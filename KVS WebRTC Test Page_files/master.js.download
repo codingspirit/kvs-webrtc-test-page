@@ -198,6 +198,7 @@ async function startMaster(localView, remoteView, formValues, onStatsReport, onR
 
     master.signalingClient.on('close', () => {
         console.log('[MASTER] Disconnected from signaling channel');
+        master.signalingClient.open();
     });
 
     master.signalingClient.on('error', () => {
