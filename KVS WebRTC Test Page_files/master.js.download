@@ -85,7 +85,7 @@ async function startMaster(localView, remoteView, formValues, onStatsReport, onR
             iceServers.push({ urls: `stun:stun.kinesisvideo.${formValues.region}.amazonaws.com:443` });
         }
     }
-    if (!formValues.natTraversalDisabled) {
+    if (false) {
         getIceServerConfigResponse.IceServerList.forEach(iceServer =>
             iceServers.push({
                 urls: iceServer.Uris,
@@ -176,7 +176,7 @@ async function startMaster(localView, remoteView, formValues, onStatsReport, onR
         await peerConnection.setLocalDescription(
             await peerConnection.createAnswer({
                 offerToReceiveAudio: true,
-                offerToReceiveVideo: true,
+                offerToReceiveVideo: false,
             }),
         );
 
